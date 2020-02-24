@@ -1,0 +1,13 @@
+﻿using System;
+
+namespace ShellLib
+{
+	public partial class ShellController
+	{
+		//TODO: <command_name>
+		internal string Command<command_name/cammel case>(string[] args)
+		{
+			throw new NotImplementedException();
+		}
+	}
+}
