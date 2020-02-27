@@ -1,10 +1,16 @@
 ﻿using ShellLib.Enums;
 using System;
+using System.IO;
 
 namespace ShellLib
 {
 	public partial class ShellController
 	{
+		public StreamReader StdIn { get; private set; }
+		public StreamWriter StdOut { get; private set; }
+		public StreamWriter StdErr { get; private set; }
+
+
 		public ShellController()
 		{
 
@@ -27,8 +33,8 @@ namespace ShellLib
 					break;
 				case CommandName.alias:
 					return this.CommandAlias(args);
-				case CommandName.cat:
-					return this.CommandCat(args);
+				//case CommandName.cat:
+				//	return ShellController.CommandCat(args, null, null, null);
 				case CommandName.cd:
 					return this.CommandCd(args);
 				case CommandName.clear:
@@ -74,6 +80,11 @@ namespace ShellLib
 
 
 			return null;
+		}
+
+		public string ResolveTab(string line)
+		{
+			throw new NotImplementedException();
 		}
 
 		internal CommandName ResolveCommandName(string Name)
